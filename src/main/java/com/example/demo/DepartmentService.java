@@ -4,10 +4,10 @@ package com.example.demo;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.example.demo.model.Employee;
+import com.example.demo.model.Department;
 
-public interface EmployeeService {
+public interface DepartmentService {
 
 	
-	public Page<Employee> findAllEmployees(Pageable pageable);
+	public Page<Department> findAllDepartments(Pageable pageable);
 }

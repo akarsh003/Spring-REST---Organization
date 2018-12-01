@@ -9,9 +9,14 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.OrderBy;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 //@Data
 @Entity
@@ -22,52 +27,62 @@ public class Department {
 //	 @OneToMany(mappedBy = "dept")
 //	 
 	 @Id
-	 @GeneratedValue
-	 
+	 @GeneratedValue 
 	 private int deptid;
 	 private String deptname;
 //	 private String departmenthead;
 	 
-	 @OneToOne(fetch=FetchType.EAGER)
+	 @OneToOne
 	 @JoinColumn(name="id",nullable=true)
-	 private Employee departmenthead;
+//	 @JsonManagedReference
+//	 @JsonIgnore
+	 private Employee id;
+	 
+	 
 
 
 
-	//	 @Id
-//	 @OneToMany(mappedBy = "dept")
-//	 @OrderBy(value="length")
-//	 private Set<Employee> departmentname = new HashSet<>();
-
-	
-	 
-	 
-	 
-	 
-//	 public void setDepartmenthead(String departmenthead) {
-//		this.departmenthead = departmenthead;
-//	}
 
 	public int getDeptid() {
 		return deptid;
 	}
+
+//	public Employee getEmployee() {
+//		return Employee;
+//	}
+//
+//	public void setEmployee(Employee employee) {
+//		Employee = employee;
+//	}
 
 	public void setDeptid(int deptid) {
 		this.deptid = deptid;
 	}
 
 	
-	public Employee getDepartmenthead() {
-		return departmenthead;
-	}
-
-	public void setDepartmenthead(Employee departmenthead) {
-		this.departmenthead = departmenthead;
-	}
+//	public Employee getDepartmenthead() {
+//		return departmenthead;
+//	}
+//
+//	public void setDepartmenthead(Employee departmenthead) {
+//		this.departmenthead = departmenthead;
+//	}
 
 //	public String getDepartmenthead() {
 //		return departmenthead;
 //	}
+//
+//	public void setDepartmenthead(String departmenthead) {
+//		this.departmenthead = departmenthead;
+//	}
+
+	public Employee getId() {
+		return id;
+	}
+
+	public void setId(Employee id) {
+		this.id = id;
+	}
 
 	public String getDeptname() {
 		return deptname;

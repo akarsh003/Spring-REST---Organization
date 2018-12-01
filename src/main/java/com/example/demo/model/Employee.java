@@ -11,6 +11,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 
 
 @Entity
@@ -28,17 +34,19 @@ public class Employee {
 	   @Temporal(TemporalType.DATE)
 	   private Date doj;	  
 
+	   
 	   @ManyToOne
 	   @JoinColumn(name="deptid")
+//	   @JsonManagedReference
+//	   @JsonBackReference
+//	   @JsonSerialize
+//	   @JsonIgnore
 	   private Department deptid;
 	   
+//	   public int getdeptid() {
+//		   return deptid;
+//	   }
 	   
-	   
-	   	   
-	   	   
-	
-	
-	
 		public float getSalary() {
 			return salary;
 		}

@@ -12,13 +12,18 @@ import com.example.demo.model.Employee;
 
 @Component
 public class DepartmentResourceAssembler implements  ResourceAssembler<Department, Resource<Department>> {
-
 	
+	//TOResource old method
 	public Resource<Department> toResource(Department department) {
 
+		Employee e=department.getId();
+		int id=e.getId();
 		return new Resource<>(department,
-			linkTo(methodOn(DepartmentController.class).findone(department.getDeptid())).withSelfRel(),
-			linkTo(methodOn(DepartmentController.class).all()).withRel("department"));
+			linkTo(methodOn(DepartmentController.class).findOne(department.getDeptid())).withSelfRel());
+//			linkTo(methodOn(DepartmentController.class).all()).withRel("department"),
+//			linkTo(methodOn(EmployeeController.class).findOne(id)).withRel("employee"));
 	}
+
+
 
 }
